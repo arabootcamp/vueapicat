@@ -112,10 +112,12 @@
       getCat(event) {
         event.preventDefault();
         this.selected.img = null;
-        if (this.selected.title != '' && this.selected.size > 0 && this.selected.size <= 1000)
+        if (this.selected.title != '' && this.selected.size > 0 && this.selected.size <= 1000 && Number.isInteger(parseFloat(this.selected.size)))
           this.requestAPI();
-        else
-          alert('Debe ingresar un titulo y un tamaño de 1 a 1000')
+        else{
+          console.log(typeof parseFloat(this.selected.size))
+          alert('Debe ingresar un titulo y un tamaño como un entero de 1 a 1000')
+        }
       }
     }
   }
